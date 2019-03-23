@@ -1,0 +1,45 @@
+pip install pyspark==2.3.2
+
+
+set SPARK_HOME=c:\spark 
+set HADOOP_HOME=c:\hadoop 
+set PATH=%SPARK_HOME%\bin;%PATH%
+set PATH=%HADOOP_HOME%\bin;%PATH%
+
+set PYTHONPATH=C:\Users\NAMRA\Anaconda
+
+
+mkdir C:\tmp\hive
+cd c:\hadoop\bin
+winutils.exe chmod -R 777 C:\tmp\hive
+
+
+C:\Users\NAMRA\Anaconda3\Lib\site-packages\pyspark\examples\target\scala-2.12\jars
+
+
+
+
+
+textFile = sc.textFile("path/to/file")
+textFile.first() // shows the first line
+
+
+import findspark
+findspark.init()
+import pyspark
+import random
+sc = pyspark.SparkContext(appName="Pi")
+num_samples = 100000000
+def inside(p):     
+  x, y = random.random(), random.random()
+  return x*x + y*y < 1
+count = sc.parallelize(range(0, num_samples)).filter(inside).count()
+pi = 4 * count / num_samples
+print(pi)
+sc.stop()
+
+
+localhost:4040
+
+
+spark-submit --class tfidf E:\Acadamics\SEM6\DM\lab\Data_Mining_lab06\201601181_lab06\tfidf\tfidf.jar E:\Acadamics\SEM6\DM\lab\Data_Mining_lab06\201601181_lab06\tfidf\input\SampleTextFile_10kb.txt E:\Acadamics\SEM6\DM\lab\Data_Mining_lab06\201601181_lab06\tfidf\opt_dir
